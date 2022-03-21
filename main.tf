@@ -1,5 +1,10 @@
-resource "aws_s3_bucket" "b" {
-  bucket = "my-tf-test-bucket"
+provider "aws" {
+  version = ">= 4.6.0"
+  region  = "us-east-1"
+}
+
+resource "aws_s3_bucket" "test" {
+  bucket = "learn-run-tasks-bucket"
 
   tags = {
     Name        = "My bucket"
@@ -8,6 +13,6 @@ resource "aws_s3_bucket" "b" {
 }
 
 resource "aws_s3_bucket_acl" "example" {
-  bucket = aws_s3_bucket.b.id
+  bucket = aws_s3_bucket.test.id
   acl    = "private"
 }
