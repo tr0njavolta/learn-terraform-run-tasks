@@ -13,5 +13,5 @@ resource "aws_s3_bucket" "test" {
 
 resource "aws_s3_bucket_acl" "example" {
   bucket = aws_s3_bucket.test.id
-  acl    = "public"
+  acl    = "public-read-write"
 }
